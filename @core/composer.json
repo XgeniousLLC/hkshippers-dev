@@ -36,6 +36,7 @@
         "xgenious/xgapiclient": "^1.1"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.6",
         "spatie/laravel-ignition": "^1.0",
         "laravel/ui": "^4.0",
         "mockery/mockery": "^1.4.4",

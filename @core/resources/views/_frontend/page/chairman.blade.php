@@ -18,7 +18,7 @@
                     $bg_img = get_attachment_image_by_id($item->image,null,false);
 
                 @endphp
-                    <div class="col-md-12 flex-content">
+                    <div class="col-md-12 flex-content" style="margin-bottom: 40px; clear: both; display: flex; align-items: center; flex-wrap: wrap;">
                     
                         <div class="col-md-6 " style="display: flex;
                             align-items: center;
@@ -46,13 +46,6 @@
                             <h4 class="text-center">{{$item->name}}</h4>
                             <h5 class="text-center">{{$item->title}}</h5>
                             
-                            <div class="col-md-12">
-                                @php
-                                    
-                                    echo str_replace("\n",'<br>',$item->content);
-                                @endphp
-
-                            </div>
                         </div>
                     </div>
             @endforeach
