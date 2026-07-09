@@ -62,7 +62,8 @@ class EventsController extends Controller
         'cost' => 'nullable|string',
         'fee' => 'nullable|string',
         'available_tickets' => 'nullable|string',
-        'slug' => 'nullable|string'
+        'slug' => 'nullable|string',
+        'apply_url' => 'nullable|string|max:500',
     ];
     
     protected const  TITLES = [
@@ -167,6 +168,7 @@ class EventsController extends Controller
             'available_tickets' => $request->available_tickets,
             'image' => $request->image,
             'icon' => $request->icon,
+            'apply_url' => $request->apply_url,
             'organizer' => $request->organizer,
             'organizer_email' => $request->organizer_email,
             'organizer_website' => $request->organizer_website,
@@ -179,7 +181,7 @@ class EventsController extends Controller
         ]);
 
         foreach($validator as $name => $val){
-            
+
             if(strpos($name,'-')!==false&&strpos($name,'-'.$default_lang)===false){
                 $_name = str_replace('event_content','content',$name);
                 $meta = Meta::where('event_id',$event->id)->where('name',$_name)->first();
@@ -304,6 +306,7 @@ class EventsController extends Controller
             'available_tickets' => $request->available_tickets,
             'image' => $request->image,
             'icon' => $request->icon,
+            'apply_url' => $request->apply_url,
             'organizer' => $request->organizer,
             'organizer_email' => $request->organizer_email,
             'organizer_website' => $request->organizer_website,
@@ -316,7 +319,7 @@ class EventsController extends Controller
         ]);
 
         foreach($validator as $name => $val){
-            
+
             if(strpos($name,'-')!==false&&strpos($name,'-'.$default_lang)===false){
                 $_name = str_replace('event_content','content',$name);
                 $meta = Meta::where('event_id',$request->event_id)->where('name',$_name)->first();

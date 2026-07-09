@@ -104,6 +104,10 @@
                                         <input type="text" class="form-control"  id="limit_in_person" name="limit_in_person" value="{{old('limit_in_person')}}" placeholder="{{__('In-Person Limit Count')}}">
                                     </div>
                                     
+                                    <div class="form-group">
+                                        <label for="apply_url">{{__('Apply URL')}}</label>
+                                        <input type="url" class="form-control" id="apply_url" name="apply_url" value="{{old('apply_url')}}" placeholder="{{__('Custom apply/register link (optional)')}}">
+                                    </div>
                                     <x-media-upload :id="''" :name="'icon'" :dimentions="'1920x1280'" :type="'jpg|png|gif|jpeg'" :title="__('Icon')"/>
                                     
                                     <x-media-upload :id="''" :name="'image'" :dimentions="'1920x1280'" :type="'jpg|png|gif|jpeg'" :title="__('Image')"/>

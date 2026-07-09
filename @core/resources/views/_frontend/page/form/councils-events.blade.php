@@ -1,4 +1,14 @@
 
+@php
+    $current_event = $data->firstWhere('id', (int)$id);
+    $reg_image = $current_event ? @get_attachment_image_by_id($current_event->image, null, false) : null;
+@endphp
+@if(!empty($reg_image['img_url']))
+<div style="margin-bottom:1.5em;">
+    <img src="{{$reg_image['img_url']}}" style="width:100%;height:auto;">
+</div>
+@endif
+
 <form method="post" class="form-contact-us invalid">
 {{ csrf_field() }}
     <div class="row ">

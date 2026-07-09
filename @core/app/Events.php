@@ -29,6 +29,7 @@ class Events extends Model
         'fee',
         'type',
         'icon',
+        'apply_url',
     ];
     public function meta($name){
         return @Meta::where('event_id',$this->id)->where('name',$name)->first();

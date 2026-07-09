@@ -210,7 +210,11 @@
                             <a href="{{url(@$_GET['back']??'/')}}"  class="btn btn-secondary" ><b>{{__('Back')}}</b></a>
                         </div>
                         <div class="col-md-4 " style="">
-                            <a href="{{route('frontend.page.form2',['type'=>'councils-events','id'=>$item->id])}}"  class="btn btn-secondary" ><b>{{__('Apply')}}</b></a>
+                            @if(!empty($item->apply_url))
+                            <a href="{{$item->apply_url}}" class="btn btn-secondary" target="_blank"><b>{{__('Apply')}}</b></a>
+                            @else
+                            <a href="{{route('frontend.page.form2',['type'=>'councils-events','id'=>$item->id])}}" class="btn btn-secondary"><b>{{__('Apply')}}</b></a>
+                            @endif
                         </div>
                     </div>
 
