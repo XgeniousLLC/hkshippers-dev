@@ -19,10 +19,10 @@
                         <form action="{{route('admin.general.homepage.extra.text')}}" method="POST">
                             @csrf
 
-                            <ul class="nav nav-tabs mb-3" role="tablist">
+                            <ul class="nav nav-tabs mb-3" id="hetTabs" role="tablist">
                                 @foreach($all_languages as $i => $lang)
                                     <li class="nav-item">
-                                        <a class="nav-link @if($i == 0) active @endif" data-toggle="tab" href="#tab_{{$lang->slug}}" role="tab">{{$lang->name}}</a>
+                                        <a class="nav-link @if($i == 0) active @endif" data-toggle="tab" href="#het_tab_{{$lang->slug}}" role="tab">{{$lang->name}}</a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -30,7 +30,7 @@
                             <div class="tab-content">
                                 @foreach($all_languages as $i => $lang)
                                     @php $record = $records[$lang->slug] ?? null; @endphp
-                                    <div class="tab-pane fade @if($i == 0) show active @endif" id="tab_{{$lang->slug}}" role="tabpanel">
+                                    <div class="tab-pane fade @if($i == 0) show active @endif" id="het_tab_{{$lang->slug}}" role="tabpanel">
 
                                         <div class="form-group">
                                             <label>{{__('Status')}}</label>
@@ -42,8 +42,10 @@
 
                                         <div class="form-group">
                                             <label>{{__('Content')}}</label>
-                                            <input type="hidden" name="content_{{$lang->slug}}" value="{{optional($record)->content}}">
-                                            <div class="summernote" data-content='@php echo str_replace("'", "&#39;", optional($record)->content) @endphp'></div>
+                                            <div class="editor">
+                                                <input type="hidden" name="content_{{$lang->slug}}" value="{{optional($record)->content}}">
+                                                <div class="_summernote" data-content='@php echo str_replace("'","&#39;",optional($record)->content) @endphp'></div>
+                                            </div>
                                         </div>
 
                                     </div>
@@ -58,26 +60,4 @@
             </div>
         </div>
     </div>
-@endsection
-@section('script')
-    <script src="{{asset('assets/backend/js/summernote-bs4.js')}}"></script>
-    <script>
-        (function ($) {
-            "use strict";
-            $(document).ready(function () {
-                $('.summernote').each(function () {
-                    var content = $(this).data('content');
-                    $(this).summernote({
-                        height: 200,
-                        callbacks: {
-                            onChange: function (contents) {
-                                $(this).prev('input[type=hidden]').val(contents);
-                            }
-                        }
-                    });
-                    $(this).summernote('code', content);
-                });
-            });
-        })(jQuery);
-    </script>
 @endsection

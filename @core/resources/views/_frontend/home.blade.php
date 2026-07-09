@@ -16,7 +16,7 @@ use Intervention\Image\Facades\Image;
             <div class="container" style="border-bottom:none;">
                 <div class="row multiple-row v-align-row">
                     @if(!empty($homepage_extra_text) && $homepage_extra_text->status === 'publish')
-                    <div class="col-lg-12 col-md-12 text-center" style="padding:1rem 1rem .5rem 1rem;">
+                    <div class="col-lg-12 col-md-12" style="padding:1rem 1rem .5rem 1rem;">
                         {!! $homepage_extra_text->content !!}
                     </div>
                     @endif
