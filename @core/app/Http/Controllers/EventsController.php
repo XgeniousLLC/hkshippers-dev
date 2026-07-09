@@ -64,6 +64,7 @@ class EventsController extends Controller
         'available_tickets' => 'nullable|string',
         'slug' => 'nullable|string',
         'apply_url' => 'nullable|string|max:500',
+        'banner_image' => 'nullable|string',
     ];
     
     protected const  TITLES = [
@@ -169,6 +170,7 @@ class EventsController extends Controller
             'image' => $request->image,
             'icon' => $request->icon,
             'apply_url' => $request->apply_url,
+            'banner_image' => $request->banner_image,
             'organizer' => $request->organizer,
             'organizer_email' => $request->organizer_email,
             'organizer_website' => $request->organizer_website,
@@ -307,6 +309,7 @@ class EventsController extends Controller
             'image' => $request->image,
             'icon' => $request->icon,
             'apply_url' => $request->apply_url,
+            'banner_image' => $request->banner_image,
             'organizer' => $request->organizer,
             'organizer_email' => $request->organizer_email,
             'organizer_website' => $request->organizer_website,

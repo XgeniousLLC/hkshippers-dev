@@ -10,45 +10,37 @@
         <section class="content-block chairman" >
             <div class="container" style="border-bottom:none;">
                 
-                <div class="row multiple-row v-align-row">
-                
-            @foreach($items as $item)
-            
-                @php
-                    $bg_img = get_attachment_image_by_id($item->image,null,false);
+                <div class="row">
+                    <div class="col-md-12" style="display:flex; justify-content:center;">
+                        <div style="width:100%; max-width:600px;">
 
-                @endphp
-                    <div class="col-md-12 flex-content" style="margin-bottom: 40px; clear: both; display: flex; align-items: center; flex-wrap: wrap;">
-                    
-                        <div class="col-md-6 " style="display: flex;
-                            align-items: center;
-                            align-content: center;
-                            flex-wrap: nowrap;
-                            justify-content: center;
-                            flex-direction: column;
-                            padding-top:1.7rem">
-                        @php 
-                            if(!empty($bg_img)) {
-                                $newwidth = 200;
-                                $newheight = 266;
-                                $img = image_resize($bg_img['img_url'],$newwidth,$newheight);
+                        @foreach($items as $item)
+                            @php
+                                $bg_img = get_attachment_image_by_id($item->image, null, false);
+                                $img = null;
+                                if (!empty($bg_img)) {
+                                    $img = image_resize($bg_img['img_url'], 200, 266);
+                                }
+                            @endphp
+                            <div style="display:flex; align-items:flex-end; gap:2rem; margin-bottom:3rem;">
+                                <div style="flex:0 0 200px;">
+                                    @if($img)
+                                        <img src="{{$img}}" style="width:200px; display:block;">
+                                    @endif
+                                </div>
+                                <div style="flex:1; padding-top:0.5rem;">
+                                    @if($item->name)
+                                        <h4 style="margin-bottom:0.5rem;">{{$item->name}}</h4>
+                                    @endif
+                                    @if($item->title)
+                                        <p style="margin:0;">{{$item->title}}</p>
+                                    @endif
+                                </div>
+                            </div>
+                        @endforeach
 
-                        @endphp
-                                <img src="{{$img}}" style="display:block;"/>
-                                
-                        @php 
-                            }
-                        @endphp
-                            <b>{{$item->author}}</b>
-                        </div>
-                        <div class="col-md-6 " style="padding:1.7rem 0;">
-
-                            <h4 class="text-center">{{$item->name}}</h4>
-                            <h5 class="text-center">{{$item->title}}</h5>
-                            
                         </div>
                     </div>
-            @endforeach
                 </div>
             </div>
         </section>

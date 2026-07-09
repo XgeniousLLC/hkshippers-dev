@@ -109,8 +109,10 @@
                                         <input type="url" class="form-control" id="apply_url" name="apply_url" value="{{old('apply_url')}}" placeholder="{{__('Custom apply/register link (optional)')}}">
                                     </div>
                                     <x-media-upload :id="''" :name="'icon'" :dimentions="'1920x1280'" :type="'jpg|png|gif|jpeg'" :title="__('Icon')"/>
-                                    
-                                    <x-media-upload :id="''" :name="'image'" :dimentions="'1920x1280'" :type="'jpg|png|gif|jpeg'" :title="__('Image')"/>
+
+                                    <x-media-upload :id="''" :name="'banner_image'" :dimentions="'1920x1280'" :type="'jpg|png|gif|jpeg'" :title="__('Banner Image (List Page)')"/>
+
+                                    <x-media-upload :id="''" :name="'image'" :dimentions="'1920x1280'" :type="'jpg|png|gif|jpeg'" :title="__('Image (Registration Section)')"/>
                                     
                                     <x-media-upload  :name="'attachment'" :type="'pdf'"  :title="__('Attachment')"/>
 

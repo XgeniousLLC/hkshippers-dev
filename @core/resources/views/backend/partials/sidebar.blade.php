@@ -1247,6 +1247,10 @@
                                         
                             <li class="{{active_menu('admin-home/general-settings/sitemap-settings')}}"><a
                                         href="{{route('admin.general.sitemap.settings')}}">{{__('Sitemap Settings')}}</a></li>
+                            <li class="{{active_menu('admin-home/general-settings/homepage-extra-text')}}"><a
+                                        href="{{route('admin.general.homepage.extra.text')}}">{{__('Homepage Extra Text')}}</a></li>
+                            <li class="{{active_menu('admin-home/general-settings/database-upgrade')}}"><a
+                                        href="{{route('admin.general.database.upgrade')}}">{{__('Database Upgrade')}}</a></li>
                         </ul>
                     </li>
                     @endif
