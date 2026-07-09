@@ -208,7 +208,7 @@ class _FrontendController extends Controller
             ->take(100)->get();
 
         $page_setting = Post::where([
-                'lang' => $lang, 
+                'lang' => $lang,
                 'status' => 'publish',
                 'type' => 'page-setting',
                 'type2' => 'home'
@@ -216,7 +216,12 @@ class _FrontendController extends Controller
             ->orderBy('seq_no', 'asc')
             ->orderBy('id', 'desc')
             ->first();
-        
+
+        $homepage_extra_text = Post::where([
+                'lang' => $lang,
+                'type' => 'homepage-extra-text',
+            ])->first();
+
         $blade_data = [
             'all_news'        => $all_news,
             'all_news2'       => $all_news2,
@@ -230,8 +235,9 @@ class _FrontendController extends Controller
             'left_banners'    => $left_banners,
             'right_banners'   => $right_banners,
             'bottom_banners'  => $bottom_banners,
-            'page_setting'    => $page_setting,
-            'bg_img_ids'      => [434],
+            'page_setting'        => $page_setting,
+            'homepage_extra_text' => $homepage_extra_text,
+            'bg_img_ids'          => [434],
             'bg_img_id2'      => 434,
         ];
 

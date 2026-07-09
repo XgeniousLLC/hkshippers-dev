@@ -1182,6 +1182,28 @@ class GeneralSettingsController extends Controller
         return redirect()->back()->with($res_data);
     }
 
+    //homepage extra text
+    public function homepage_extra_text()
+    {
+        $all_languages = Language::all();
+        $records = \App\Post::where('type', 'homepage-extra-text')->get()->keyBy('lang');
+        return view('backend.general-settings.homepage-extra-text', compact('all_languages', 'records'));
+    }
+
+    public function update_homepage_extra_text(Request $request)
+    {
+        $all_languages = Language::all();
+        foreach ($all_languages as $lang) {
+            $content = $request->input('content_' . $lang->slug);
+            $status  = $request->input('status_' . $lang->slug, 'draft');
+            \App\Post::updateOrCreate(
+                ['type' => 'homepage-extra-text', 'lang' => $lang->slug],
+                ['content' => $content, 'status' => $status, 'title' => 'Homepage Extra Text']
+            );
+        }
+        return back()->with(['msg' => __('Settings Updated'), 'type' => 'success']);
+    }
+
     //database upgrade
     public function database_upgrade(){
         return view('backend.general-settings.database-upgrade');

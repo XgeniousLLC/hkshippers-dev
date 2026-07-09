@@ -15,6 +15,11 @@ use Intervention\Image\Facades\Image;
         <section class="content-block style-2" style="padding:2rem 0;">
             <div class="container" style="border-bottom:none;">
                 <div class="row multiple-row v-align-row">
+                    @if(!empty($homepage_extra_text) && $homepage_extra_text->status === 'publish')
+                    <div class="col-lg-12 col-md-12 text-center" style="padding:1rem 1rem .5rem 1rem;">
+                        {!! $homepage_extra_text->content !!}
+                    </div>
+                    @endif
                     @if(sizeof($top_banner)>0)
                     <div class="col-lg-12 col-md-12 text-center image-slider" style="padding:1rem 1rem .5rem 1rem;">
                         <!-- Image container of the image slider -->

@@ -2072,6 +2072,11 @@ Route::prefix('admin-home')->middleware(['setlang:backend'])->group(function () 
         Route::get('/database-upgrade', 'GeneralSettingsController@database_upgrade')->name('admin.general.database.upgrade');
         Route::post('/database-upgrade', 'GeneralSettingsController@database_upgrade_post');
         /*----------------------------------------------------
+            HOMEPAGE EXTRA TEXT
+        ----------------------------------------------------*/
+        Route::get('/homepage-extra-text', 'GeneralSettingsController@homepage_extra_text')->name('admin.general.homepage.extra.text');
+        Route::post('/homepage-extra-text', 'GeneralSettingsController@update_homepage_extra_text');
+        /*----------------------------------------------------
               SITE IDENTITY
         ----------------------------------------------------*/
         Route::get('/site-identity', 'GeneralSettingsController@site_identity')->name('admin.general.site.identity');
