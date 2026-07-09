@@ -65,7 +65,7 @@ class MemberController extends Controller
         'stroke' => 'nullable|integer',
         
     ];
-    protected const  TITLES = [
+    public const TITLES = [
         'honorary-chairman'=>'Honorary Chairman',
         'executive-committee'=>'Executive Committee',
         'specialised-sub-committee'=>'Specialised Sub-Committee',
@@ -260,6 +260,7 @@ class MemberController extends Controller
             'stroke' => $request->stroke,
             'attachment' => $request->attachment,
             'contact_person' => $request->contact_person,
+            'type' => $request->type,
             'user_id' => Auth::user()->id,
         ]);
 

@@ -46,6 +46,14 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label for="member_category">{{__('Category')}}</label>
+                                        <select name="type" id="member_category" class="form-control">
+                                            @foreach(\App\Http\Controllers\MemberController::TITLES as $slug => $label)
+                                                <option @if($member->type === $slug) selected @endif value="{{$slug}}">{{$label}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="status">{{__('Status')}}</label>
                                         <select name="status" id="status" class="form-control">
                                             <option  @if($member->status == 'publish') selected @endif value="publish">{{__('Publish')}}</option>
