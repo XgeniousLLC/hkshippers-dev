@@ -33,8 +33,8 @@
                                                 <td>{{$data->seq_no}}</td>
                                                 <td>
                                         @foreach(\App\Http\Controllers\MemberController::TYPE_FOUNDER as $type)
-                                                
-                                                @if($data->type_founder === $type[0]) {{$type[1]}} @endif  
+
+                                                @if($data->type_founder === $type[0]) {{ member_type_label($type[1], $data->lang) }} @endif
                                             @endforeach
                                                 </td>
                                                 <td>{{date_format($data->created_at,'d M Y')}}</td>
