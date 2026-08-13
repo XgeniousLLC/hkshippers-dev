@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "010fb337de4e474c9536a3000614e14d",
+    "content-hash": "a377d1bbf87325a12579e5ea82287d38",
     "packages": [
         {
             "name": "anandsiddharth/laravel-paytm-wallet",
@@ -520,21 +520,19 @@
         },
         {
             "name": "cinetpay/cinetpay-php",
-            "version": "1.9.2",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/cinetpay/cinetpay-php-legacy.git",
-                "reference": "8a4a53bce076036fc5d6781bee839719780f2028"
+                "url": "https://github.com/arnoldkouya/cinetpay-php-legacy.git",
+                "reference": "f8d1211e615537cf20d7bdb8bbde889b975d2f68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cinetpay/cinetpay-php-legacy/zipball/8a4a53bce076036fc5d6781bee839719780f2028",
-                "reference": "8a4a53bce076036fc5d6781bee839719780f2028",
+                "url": "https://api.github.com/repos/arnoldkouya/cinetpay-php-legacy/zipball/f8d1211e615537cf20d7bdb8bbde889b975d2f68",
+                "reference": "f8d1211e615537cf20d7bdb8bbde889b975d2f68",
                 "shasum": ""
             },
             "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
                 "php": ">=5.6.0"
             },
             "type": "library",
@@ -543,7 +541,6 @@
                     "CinetPay": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -555,7 +552,7 @@
                 }
             ],
             "description": "easily integrate cinetpay's gateway on your php web site.",
-            "homepage": "https://github.com/cinetpay/cinetpay-php-legacy",
+            "homepage": "https://github.com/cinetpay/cinetpay-php-sdk",
             "keywords": [
                 "cinetpay",
                 "integration",
@@ -564,10 +561,9 @@
             ],
             "support": {
                 "email": "support@cinetpay.com",
-                "issues": "https://github.com/cinetpay/cinetpay-php-legacy/issues",
-                "source": "https://github.com/cinetpay/cinetpay-php-legacy/tree/v1.9.2"
+                "source": "https://github.com/arnoldkouya/cinetpay-php-legacy/tree/v1.9.1"
             },
-            "time": "2020-11-30T00:00:00+00:00"
+            "time": "2018-05-24T00:00:00+00:00"
         },
         {
             "name": "clue/stream-filter",

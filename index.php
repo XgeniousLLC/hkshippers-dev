@@ -66,30 +66,30 @@ $kernel->terminate($request, $response);
 
 
 function image_resize($img,$w,$h){
-    $context = stream_context_create([
-        'ssl' => [
-            'verify_peer' => false,
-            'verify_peer_name' => false,
-        ],
-    ]);
-    $image_data_raw = file_get_contents($img, false, $context);
-    if ($image_data_raw === false) {
-        return $img;
-    }
-    $size = getimagesizefromstring($image_data_raw);
+    $size = getimagesize($img);
     $_w = $size[0];
     $_h = $size[1];
-    $ext = pathinfo(parse_url($img, PHP_URL_PATH), PATHINFO_EXTENSION);
+    $ext = pathinfo($img, PATHINFO_EXTENSION);
 
-    $src = imagecreatefromstring($image_data_raw);
-    if ($src === false) {
-        return $img;
+    $src = null;
+    switch(strtolower($ext)){
+        case 'jpg':
+        case 'jpeg':
+            $src = imagecreatefromjpeg($img);
+            break;
+        case 'png':
+            $src = imagecreatefrompng($img);
+            break;
+        case 'gif':
+            $src = imagecreatefromgif($img);
+            break;
     }
+    
 
-    ob_start();
+    ob_start (); 
     
     $resized_image = imagecreatetruecolor($w, $h);
-    switch ( strtolower($ext) )
+    switch ( $ext )
     {
         case 'jpg':
         case 'jpeg':
@@ -109,9 +109,7 @@ function image_resize($img,$w,$h){
             imagegif($resized_image);
             break;
     }
-    $image_data = ob_get_contents(); 
-    ob_end_clean(); 
-    imagedestroy($src);
-    imagedestroy($resized_image);
+    $image_data = ob_get_contents (); 
+    ob_end_clean (); 
     return 'data:image/' . $ext . ';base64,' . base64_encode($image_data);
 }
